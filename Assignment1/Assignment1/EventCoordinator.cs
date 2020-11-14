@@ -47,5 +47,19 @@ namespace Assignment1
         {
             return eventMan.getEventInfo(id);
         }
+
+        public bool addRsvp(int eventId, int customerId)
+        {
+            Event e = eventMan.getEvent(eventId);
+            Customer c = custMan.getCustomer(customerId);
+            bool rsvpMade = e.addAttendee(c);
+
+            if (rsvpMade)
+            {
+                c.increaseNumBookings();
+            }
+
+            return rsvpMade;
+        }
     }
 }

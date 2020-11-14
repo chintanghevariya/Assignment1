@@ -24,6 +24,7 @@ namespace Assignment1
         public string getLastName() { return lastName; }
         public string getPhone() { return phone; }
         public int getNumBookings() { return bookings; }
+        public void increaseNumBookings() { bookings += 1; }
         public override string ToString()
         {
             string s = "Customer " + customerId;

@@ -219,12 +219,85 @@ namespace Assignment1
             int choice = getValidChoice(3, menu);
             while (choice != 3)
             {
-                if (choice == 1) { }
-                if (choice == 2) { }
+                if (choice == 1) { runViewAddRsvp(); }
+                if (choice == 2) { runViewRsvps(); }
 
                 choice = getValidChoice(3, menu);
             }
         }
+
+        // Our code begins here
+
+        public static void runViewAddRsvp()
+        {
+            bool rsvpMade;
+            int eventId, customerId;
+            string eventInfo, customerInfo, date;
+
+            Console.Clear();
+            Console.WriteLine("Add RSVP: \n");
+            Console.WriteLine("List of customers: \n");
+            Console.WriteLine(eCoord.customerList());
+            Console.WriteLine("-------------------");
+            Console.WriteLine("List of events: ");
+            Console.WriteLine(eCoord.eventList());
+            Console.WriteLine("-------------------");
+            Console.WriteLine("Please enter event id to RSVP For: ");
+
+            eventId = getIntChoice();
+            eventInfo = eCoord.getEventInfoById(eventId);
+
+            if (eventInfo == "There is no event with id " + eventId + ".")
+            {
+                Console.WriteLine("Event with id " + eventId + " not found");
+                waitForExit();
+
+                return;
+            }
+
+            Console.WriteLine("Please enter customer id: ");
+
+            customerId = getIntChoice();
+            customerInfo = eCoord.getCustomerInfoById(customerId);
+
+            if (customerInfo == "There is no customer with id " + customerId + ".")
+            {
+                Console.WriteLine("Customer with id " + customerId + " not found.");
+                waitForExit();
+
+                return;
+            }
+
+            date = DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt");
+
+            rsvpMade = eCoord.addRsvp(eventId, customerId);
+
+            if (rsvpMade)
+            {
+                Console.WriteLine("RSVP Made");
+            } else
+            {
+                Console.WriteLine("Max number of rsvps reached. Hence this customer is not added");
+            }
+
+            waitForExit();
+        }
+
+        public static void runViewRsvps()
+        {
+            Console.Clear();
+            Console.WriteLine("View RSVPS");
+            Console.WriteLine("\nPress any key to continue return to the main menu.");
+            Console.ReadKey();
+        }
+
+        public static void waitForExit()
+        {
+            Console.WriteLine("\nPress any key to continue return to the main menu.");
+            Console.ReadKey();
+        }
+
+        // Our code ends here
 
 
         public static int getValidChoice(int max, string menu)
@@ -276,5 +349,4 @@ namespace Assignment1
         }
 
     }
-}
 }
