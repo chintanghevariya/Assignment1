@@ -6,6 +6,7 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
+            // Git Tutorial Completed
             Console.WriteLine("Hello World!");
         }
     }
