@@ -12,6 +12,8 @@ namespace Assignment1
         private int numAttendees;
         private string dateCreated;
         private Customer[] attendeeList;
+        private int numRsvps;
+        private RSVP[] rsvps;
 
         public Event(int eventId, string name, string venue, Date eventDate, int maxAttendees)
         {
@@ -23,6 +25,7 @@ namespace Assignment1
             numAttendees = 0;
             attendeeList = new Customer[maxAttendees];
             dateCreated = DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt");
+            rsvps = new RSVP[maxAttendees];
         }
 
         public int getEventId() { return eventId; }
@@ -31,6 +34,29 @@ namespace Assignment1
 
         public int getMaxAttendees() { return maxAttendees; }
         public int getNumAttendees() { return numAttendees; }
+
+        public bool addRsvp(Customer c)
+        {
+            if (numRsvps >= maxAttendees) { return false; }
+            RSVP rsvp = new RSVP(DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt"), this, c);
+            rsvps[numRsvps] = rsvp;
+            numRsvps++;
+            return true;
+        }
+
+        public string getRsvps()
+        {
+            string s = "RSVPs for this event: \n";
+
+            for (int i = 0; i < numRsvps; i++)
+            {
+                s += rsvps[i].getDate() + " ";
+                s += rsvps[i].getCustomer().getFirstName() + " ";
+                s += rsvps[i].getCustomer().getLastName() + " \n";
+            }
+
+            return s;
+        }
 
         public bool addAttendee(Customer c)
         {

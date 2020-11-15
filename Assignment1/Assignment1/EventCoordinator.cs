@@ -52,12 +52,7 @@ namespace Assignment1
         {
             Event e = eventMan.getEvent(eventId);
             Customer c = custMan.getCustomer(customerId);
-            bool rsvpMade = e.addAttendee(c);
-
-            if (rsvpMade)
-            {
-                c.increaseNumBookings();
-            }
+            bool rsvpMade = e.addRsvp(c);
 
             return rsvpMade;
         }

@@ -27,6 +27,18 @@ namespace Assignment1
             return true;
         }
 
+        public bool addRsvpForEvent(string date, Event e, Customer c)
+        {
+            if (e.getNumAttendees() == e.getMaxAttendees())
+            {
+                return false;
+            }
+
+            RSVP newRsvp = new RSVP(date, e, c);
+
+            return true;
+        }
+
         private int findEvent(int eid)
         {
             for (int x = 0; x < numEvents; x++)
