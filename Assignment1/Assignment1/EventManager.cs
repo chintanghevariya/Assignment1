@@ -20,6 +20,7 @@ namespace Assignment1
         public bool addEvent(string name, string venue, Date eventDate, int maxAttendees)
         {
             if (numEvents >= maxEvents) { return false; }
+            if (locationIsBooked(venue, eventDate)) { return false; }
             Event e = new Event(currentEventId, name, venue, eventDate, maxAttendees);
             eventList[numEvents] = e;
             numEvents++;
@@ -27,15 +28,12 @@ namespace Assignment1
             return true;
         }
 
-        public bool addRsvpForEvent(string date, Event e, Customer c)
+        public bool addRsvpForEvent(int eventId, Customer customer)
         {
-            if (e.getNumAttendees() == e.getMaxAttendees())
-            {
-                return false;
-            }
-
-            RSVP newRsvp = new RSVP(date, e, c);
-
+            if (customer == null) { return false; }
+            Event e = getEvent(eventId);
+            if (e.getNumAttendees() == e.getMaxAttendees()) { return false; }
+            e.addRsvp(customer);
             return true;
         }
 
@@ -63,6 +61,21 @@ namespace Assignment1
             return eventList[loc];
         }
 
+        public bool locationIsBooked(string location, Date date)
+        {
+            bool found = false;
+
+            for (int i = 0; i < numEvents; i++)
+            {
+                if (eventList[i].getVenue() == location && eventList[i].getDate().ToString() == date.ToString())
+                {
+                    found = true;
+                }
+            }
+
+            return found;
+        }
+
         public bool deleteEvent(int eid)
         {
             int loc = findEvent(eid);
@@ -84,6 +97,18 @@ namespace Assignment1
             {
                 s = s + "\n" + eventList[x].getEventId() + " \t " + eventList[x].getEventName() + " \t " + eventList[x].getVenue();
             }
+            return s;
+        }
+
+        public string getRsvps()
+        {
+            string s = "";
+
+            for (int i = 0; i < numEvents; i++)
+            {
+                s += eventList[i].getRsvps();
+            }
+
             return s;
         }
 

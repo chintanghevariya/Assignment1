@@ -286,7 +286,8 @@ namespace Assignment1
         public static void runViewRsvps()
         {
             Console.Clear();
-            Console.WriteLine("View RSVPS");
+            string rsvps = eCoord.getRsvps();
+            Console.WriteLine(rsvps);
             Console.WriteLine("\nPress any key to continue return to the main menu.");
             Console.ReadKey();
         }

@@ -31,14 +31,14 @@ namespace Assignment1
         public int getEventId() { return eventId; }
         public string getEventName() { return eventName; }
         public string getVenue() { return venue; }
+        public Date getDate() { return eventDate; }
 
         public int getMaxAttendees() { return maxAttendees; }
         public int getNumAttendees() { return numAttendees; }
 
         public bool addRsvp(Customer c)
         {
-            if (numRsvps >= maxAttendees) { return false; }
-            RSVP rsvp = new RSVP(DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt"), this, c);
+            RSVP rsvp = new RSVP(numRsvps + 1, DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt"), this, c);
             rsvps[numRsvps] = rsvp;
             numRsvps++;
             return true;

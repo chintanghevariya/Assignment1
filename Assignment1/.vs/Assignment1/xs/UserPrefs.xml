@@ -1,27 +1,23 @@
 ﻿<Properties StartupConfiguration="{F036480E-3175-4D1F-B070-B6D184CC9C94}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assignment1/RSVP.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assignment1/EventManager.cs">
     <Files>
-      <File FileName="Assignment1/Program.cs" Line="283" Column="27" />
-      <File FileName="Assignment1/Event.cs" Line="77" Column="61" />
-      <File FileName="Assignment1/Date.cs" Line="2" Column="1" />
-      <File FileName="Assignment1/Customer.cs" Line="29" Column="10" />
-      <File FileName="Assignment1/EventManager.cs" Line="17" Column="46" />
-      <File FileName="Assignment1/CustomerManager.cs" Line="49" Column="35" />
-      <File FileName="Assignment1/EventCoordinator.cs" Line="37" Column="10" />
-      <File FileName="Assignment1/RSVP.cs" Line="6" Column="1" />
+      <File FileName="Assignment1/EventManager.cs" Line="69" Column="83" />
+      <File FileName="Assignment1/EventCoordinator.cs" Line="36" Column="28" />
+      <File FileName="Assignment1/Event.cs" Line="34" Column="49" />
+      <File FileName="Assignment1/Program.cs" Line="290" Column="38" />
+      <File FileName="Assignment1/CustomerManager.cs" Line="1" Column="1" />
+      <File FileName="Assignment1/RSVP.cs" Line="14" Column="26" />
+      <File FileName="Assignment1/Date.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Assignment1" expanded="True">
             <Node name="Assignment1" expanded="True">
-              <Node name="RSVP.cs" selected="True" />
+              <Node name="EventManager.cs" selected="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

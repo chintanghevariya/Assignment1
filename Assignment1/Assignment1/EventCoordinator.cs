@@ -50,11 +50,13 @@ namespace Assignment1
 
         public bool addRsvp(int eventId, int customerId)
         {
-            Event e = eventMan.getEvent(eventId);
-            Customer c = custMan.getCustomer(customerId);
-            bool rsvpMade = e.addRsvp(c);
+            Customer customer = custMan.getCustomer(customerId);
+            return eventMan.addRsvpForEvent(eventId, customer);
+        }
 
-            return rsvpMade;
+        public string getRsvps()
+        {
+            return eventMan.getRsvps();
         }
     }
 }

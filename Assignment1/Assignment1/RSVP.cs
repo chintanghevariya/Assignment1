@@ -9,8 +9,9 @@ namespace Assignment1
         private Customer customer;
         private bool accepted = false;
 
-        public RSVP(string date, Event e, Customer c)
+        public RSVP(int id, string date, Event e, Customer c)
         {
+            this.id = id;
             this.date = date;
             this.e = e;
             this.customer = c;
